@@ -9,7 +9,7 @@ class Test_Splendo:
 
     def test_simple_test(self):
         desired_caps = {
-            "deviceName": "Nexus_5_android_8",
+            "deviceName": "Pixel 2 API 26",
             "platformName": "Android",
             "version": "8.0",
             "app": "/Users/apiliuk/Downloads/vitaliy/python_appium/app/splendo.apk",
