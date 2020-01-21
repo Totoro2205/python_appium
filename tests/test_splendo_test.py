@@ -10,8 +10,9 @@ from python_appium.src.pages.new_task import NewTask, task_name
 class Test_Splendo:
 
     def test_simple_test(self, driver):
-
-        wait = WebDriverWait(driver, 30)
+        a = 0
+        driver.drag_and_drop(driver.find_element_by_xpath("//*[contains(@text,'Sort order')]"),
+                             driver.find_element_by_xpath("//*[contains(@text,'Remove Ads')]"))
         self.add_first_task_page = AddFirstTask(driver)
         self.add_first_task_page.click_at_add_first_task_button()
         self.add_new_task = NewTask(driver)
@@ -25,6 +26,7 @@ class Test_Splendo:
         self.add_new_task.click_add_to_list_button()
         self.add_new_task.add_to_personal_list_button()
         self.add_new_task.save_task()
+        wait = WebDriverWait(driver, 30)
         wait.until(EC.presence_of_element_located((MobileBy.ID, task_name)))
         assert driver.find_element_by_id(task_name).is_displayed()
 
